@@ -1,7 +1,13 @@
 import { Button } from './ui/button';
 import { FaArrowUp } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
-import { useEffect, useRef, useState, type KeyboardEvent } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+  type ClipboardEvent,
+  type KeyboardEvent,
+} from 'react';
 import axios from 'axios';
 import ReactMarkdown from 'react-markdown';
 
@@ -53,12 +59,21 @@ const ChatBot = () => {
     }
   };
 
+  const onCopyMessage = (e: ClipboardEvent<HTMLDivElement>): void => {
+    const selection = window.getSelection()?.toString().trim();
+    if (selection) {
+      e.preventDefault();
+      e.clipboardData.setData('text/plain', selection);
+    }
+  };
+
   return (
     <div>
       <div className="flex flex-col gap-2 mb-8">
         {messages.map((message, index) => (
           <div
             key={index}
+            onCopy={onCopyMessage}
             className={`px-3 py-1 rounded-xl ${
               message.role === 'user'
                 ? 'bg-blue-600 text-white self-end'
