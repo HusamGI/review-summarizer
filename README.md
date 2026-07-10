@@ -1,4 +1,4 @@
-# chatbot
+# Review Summarizer
 
 To install dependencies:
 

@@ -1,5 +1,5 @@
 {
-  "name": "chatbot",
+  "name": "review-summarizer",
   "module": "index.ts",
   "type": "module",
   "private": true,
