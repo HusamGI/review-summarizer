@@ -12,4 +12,10 @@ To run:
 bun run index.ts
 ```
 
+To run local LLM model, install Ollama then run:
+
+```bash
+ollama run llama3.1
+```
+
 This project was created using `bun init` in bun v1.3.4. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
