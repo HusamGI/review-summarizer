@@ -7,9 +7,9 @@ const conversations = new Map<string, string>();
 
 //#region Public interface
 
-export const ConversationRepository = {
-  getLastResponseId: (conversationId: string): string | null =>
-    conversations.get(conversationId) ?? null,
+export const conversationRepository = {
+  getLastResponseId: (conversationId: string): string | undefined =>
+    conversations.get(conversationId) ?? undefined,
 
   setLastResponseId: (conversationId: string, responseId: string) =>
     conversations.set(conversationId, responseId),
